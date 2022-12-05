@@ -18,6 +18,7 @@ public class Livre {
 		this.emprunt = false;
 		this.date_emprunt = 0;
 	}
+
 	public Livre(final String Titre, final String Auteur, final String Genre, final int nb_page,
 			final int nb_exemplaires, final boolean emprunt, final int date_emprunt) {
 		this.Titre = Titre;
@@ -86,7 +87,5 @@ public class Livre {
 	public void setDate_emprunt(int date_emprunt) {
 		this.date_emprunt = date_emprunt;
 	}
-
-
 
 }

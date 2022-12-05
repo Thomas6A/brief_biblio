@@ -11,6 +11,7 @@ public class Bibliothèque {
 	private ArrayList<Livre> Livres;
 	private ArrayList<String> Liste = new ArrayList<String>();
 	private Livre livre;
+	Scanner input = new Scanner(System.in);
 
 	// Constructeurs
 	public Bibliothèque(final ArrayList<Livre> Livres) {
@@ -18,6 +19,8 @@ public class Bibliothèque {
 	}
 
 	// Méthodes
+
+	// Liste des livres
 	public ArrayList<String> Liste_livres() {
 
 		for (int i = 0; i < this.Livres.size(); i++) {
@@ -26,17 +29,19 @@ public class Bibliothèque {
 		return Liste;
 	}
 
-	public Livre detail_livre(Scanner input) {
-
-		String titre = input.nextLine();
+	// Trouver un livre selon un titre
+	public Livre detail_livre() {
+		String titre_livre = input.nextLine();
 		for (int i = 0; i < this.Livres.size(); i++) {
-			if (titre.contains(this.Livres.get(i).getTitre())) {
+			String title = this.Livres.get(i).getTitre();
+			if (title.equals(titre_livre)) {
 				livre = this.Livres.get(i);
 			}
 		}
 		return livre;
 	}
 
+	// Exporter en CSV
 	public void export_fichier() {
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter("biblio.csv"));
